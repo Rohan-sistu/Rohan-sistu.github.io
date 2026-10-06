@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bias Auditor for Hiring Models | Rohan Prasad Sistu</title>
+<meta name="description" content="Case study: a SHAP-based tool that detects proxy discrimination in hiring models using the four-fifths rule.">
+<meta property="og:title" content="Bias Auditor for Hiring Models | Rohan Prasad Sistu">
+<meta property="og:description" content="Case study: a SHAP-based tool that detects proxy discrimination in hiring models using the four-fifths rule.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1E6FE0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E6FE0'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='34' font-weight='700' text-anchor='middle' fill='white'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span>Rohan</span> Prasad Sistu</a>
+    <ul>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#case-studies">Case studies</a></li>
+      <li><a href="../index.html#more">Other projects</a></li>
+      <li><a href="../index.html#certs">Training</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:rohanchowdary780@gmail.com">Get in touch</a>
+  </div>
+</nav>
+
+<header class="cs-head">
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html#case-studies">← All case studies</a></div>
+    <h1>Bias Auditor for hiring models</h1>
+    <p class="cs-sum">A SHAP-powered tool that detects proxy discrimination: bias against a protected group that shows up even when the group's label is never a model input.</p>
+    <dl class="meta"><div><dt>Type</dt><dd>Personal project · explainable AI</dd></div><div><dt>Stack</dt><dd>Python, scikit-learn, SHAP, Streamlit, Pandas</dd></div><div><dt>Data</dt><dd>Synthetic, with bias built in on purpose</dd></div><div><dt>Links</dt><dd><a href="https://bias-auditor-hiring.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a> · <a href="https://github.com/Rohan-sistu/bias-auditor-hiring" target="_blank" rel="noopener">GitHub ↗</a></dd></div></dl>
+  </div>
+</header>
+<main class="cs-body">
+  <div class="wrap">
+
+    <h2>The problem</h2>
+    <p>Companies rightly don't feed gender, race, or age into hiring models. But a model can still discriminate if another feature acts as a <b>proxy</b>: it correlates closely enough with group membership to carry its signal indirectly. A real-world example is career-gap length, which correlates with gender because of unequal caregiving leave. A model that penalizes career gaps can end up penalizing one gender more, without ever "knowing" gender.</p>
+    <div class="callout"><p><b>About the data.</b> The dataset is synthetic. I built a realistic historical hiring dataset with this bias baked in, so the audit has something real to find. This demonstrates an auditing method. It is not a claim about any real company's hiring.</p></div>
+
+    <h2>What the audit does</h2>
+    <ol>
+      <li><b>Trains a model</b> on historical hiring outcomes using only legitimate-looking features (experience, education, skill scores, interview scores, career-gap length). Gender is deliberately left out.</li>
+      <li><b>Checks outcome disparity</b> with the four-fifths rule, the standard U.S. EEOC heuristic for adverse impact: if one group's selection rate is under 80% of another's, that is a red flag.</li>
+      <li><b>Uses SHAP to find the source</b> by comparing each feature's average contribution across gender groups, which shows which feature is acting as the proxy.</li>
+      <li><b>Suggests fixes:</b> removing the proxy, reweighting, group-aware thresholds, and ongoing monitoring.</li>
+    </ol>
+
+    <h2>Why I built it</h2>
+    <p>Most explainable-AI projects stop at "here is what the model thinks is important." This one asks the harder question: is what the model learned actually fair? That turns interpretability from a nice-to-have into a governance tool. It also matters for regulation: the EU AI Act sets requirements around bias and discrimination for high-risk AI systems, which include AI used in employment.</p>
+
+    <h2>Scope and limits</h2>
+    <p>The project demonstrates one well-known form of bias (proxy discrimination), one fairness metric (the four-fifths rule), and one explainability method (SHAP). Real fairness auditing is broader. It also looks at metrics like equalized odds and calibration, at intersectional bias across several protected attributes at once, and at legal frameworks that vary by country. This is a working demonstration of the core technique, not a complete compliance solution.</p>
+    <div class="pill-row">
+      <a class="btn btn-primary" href="https://bias-auditor-hiring.streamlit.app/" target="_blank" rel="noopener">Try the live demo ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/Rohan-sistu/bias-auditor-hiring" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </div>
+
+    <div class="cs-nav">
+      <a href="retail-rfm-dashboard.html">← Customer Segmentation Dashboard</a>
+      <a href="sql-retail-analytics.html">Retail Analytics SQL Project →</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">Let's talk about your data.</div>
+        <div class="footer-sub">Open to data analyst and ML/analytics roles in Germany and remote.</div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:rohanchowdary780@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/rohan-prasad-sistu-b804b6255" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Rohan-sistu" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-note">Halle (Saale), Germany</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive vs. Static Explanations | Rohan Prasad Sistu</title>
+<meta name="description" content="Case study: an M.Sc. thesis user study comparing static and interactive SHAP and LIME explanations on understanding, speed, and trust.">
+<meta property="og:title" content="Interactive vs. Static Explanations | Rohan Prasad Sistu">
+<meta property="og:description" content="Case study: an M.Sc. thesis user study comparing static and interactive SHAP and LIME explanations on understanding, speed, and trust.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1E6FE0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E6FE0'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='34' font-weight='700' text-anchor='middle' fill='white'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span>Rohan</span> Prasad Sistu</a>
+    <ul>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#case-studies">Case studies</a></li>
+      <li><a href="../index.html#more">Other projects</a></li>
+      <li><a href="../index.html#certs">Training</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:rohanchowdary780@gmail.com">Get in touch</a>
+  </div>
+</nav>
+
+<header class="cs-head">
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html#case-studies">← All case studies</a></div>
+    <h1>Interactive vs. static explanations</h1>
+    <p class="cs-sum">Does making model explanations interactive help people understand and trust them more? I built both versions and tested them with participants.</p>
+    <dl class="meta"><div><dt>Type</dt><dd>M.Sc. thesis, 2026</dd></div><div><dt>Stack</dt><dd>Python, scikit-learn, SHAP, LIME, Plotly, Dash, Streamlit</dd></div><div><dt>Data</dt><dd>IBM HR Analytics Attrition (1,470 records, 35 features)</dd></div><div><dt>Read</dt><dd><a href="https://github.com/Rohan-sistu/-ml-interpretability-thesis/blob/main/Master_Thesis_Rohan_Prasad_Sistu.pdf" target="_blank" rel="noopener">Thesis PDF ↗</a></dd></div></dl>
+  </div>
+</header>
+<main class="cs-body">
+  <div class="wrap">
+
+    <h2>The question</h2>
+    <p>Machine learning models are used in high-stakes decisions, but the most accurate ones tend to be the hardest to interpret. Explanation methods like SHAP and LIME help, but most research asks how to build better explanations. My thesis asked something different: <b>does making an explanation interactive help people understand and trust it more?</b></p>
+
+    <h2>What I built</h2>
+    <ul>
+      <li>Trained Logistic Regression and Random Forest classifiers on the IBM HR Analytics Employee Attrition dataset (1,470 records, 35 features).</li>
+      <li>Used SHAP and LIME to produce global and local explanations of the predictions.</li>
+      <li>Built two parallel ways to see the same explanations. <b>Static:</b> fixed Matplotlib and Seaborn plots, such as feature-importance bars, SHAP summary plots, and correlation heatmaps. <b>Interactive:</b> a live dashboard (Plotly, Dash, Streamlit) with filtering, hover tooltips, and instance-level SHAP plots for what-if exploration.</li>
+    </ul>
+
+    <h2>How the user study worked</h2>
+    <ul>
+      <li><b>Participants:</b> students and professionals with basic data literacy.</li>
+      <li><b>Design:</b> every participant used both the static and the interactive version, with the task order counterbalanced to reduce learning effects.</li>
+      <li><b>Task:</b> identify the main features driving a prediction and describe the model's behavior.</li>
+      <li><b>Measured:</b> interpretation accuracy, completion time, and error rates, plus Likert questionnaires on usability, confidence, and trust. Open-ended answers were analyzed for themes.</li>
+    </ul>
+
+    <h2>What I found</h2>
+    <div class="t-wrap"><table class="t">
+      <tr><th>Measure</th><th>Static</th><th>Interactive</th></tr>
+      <tr><td>Task interpretation accuracy</td><td>Lower</td><td>Higher</td></tr>
+      <tr><td>Task completion time</td><td>Slower</td><td>Faster</td></tr>
+      <tr><td>Reported trust and usability</td><td>Lower</td><td>Higher</td></tr>
+    </table></div>
+    <p>The direction was consistent for most participants. In the open-ended answers, people said hovering, tooltips, dynamic filtering, and instance-level exploration made them more confident about why the model decided what it did. They called the static plots informative but limiting once they wanted to dig deeper. The full statistics are in the thesis.</p>
+
+    <h3>A side finding about model choice</h3>
+    <div class="t-wrap"><table class="t">
+      <tr><th>Model</th><th>Accuracy</th><th>Attrition-class recall</th></tr>
+      <tr><td>Logistic Regression</td><td>86%</td><td>0.34</td></tr>
+      <tr><td>Random Forest</td><td>83%</td><td>0.09</td></tr>
+    </table></div>
+    <p>The more complex Random Forest did worse on the minority class, which is the one that matters when you want to predict who will leave. On imbalanced data, accuracy alone can mislead.</p>
+
+    <h2>Limits</h2>
+    <ul>
+      <li>The user study had a fairly small sample, so the results shouldn't be generalized to larger groups.</li>
+      <li>It used a single business dataset, so I can't say the findings hold in areas like healthcare or finance.</li>
+      <li>Class imbalance in the data affected how well the models predicted attrition.</li>
+      <li>I tested a limited set of models and explanation techniques.</li>
+    </ul>
+    <div class="callout"><p>The deployed prediction tool this work builds on is the <a href="https://github.com/Rohan-sistu/employee-attrition-dashboard" target="_blank" rel="noopener" style="color:var(--blue)">Employee Attrition Dashboard</a>.</p></div>
+    <div class="pill-row">
+      <a class="btn btn-primary" href="https://github.com/Rohan-sistu/-ml-interpretability-thesis/blob/main/Master_Thesis_Rohan_Prasad_Sistu.pdf" target="_blank" rel="noopener">Read the full thesis (PDF) ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/Rohan-sistu/-ml-interpretability-thesis" target="_blank" rel="noopener">Thesis repository ↗</a>
+    </div>
+
+    <div class="cs-nav">
+      <a href="sql-retail-analytics.html">← Retail Analytics SQL Project</a>
+      <a href="retail-rfm-dashboard.html">Customer Segmentation Dashboard →</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">Let's talk about your data.</div>
+        <div class="footer-sub">Open to data analyst and ML/analytics roles in Germany and remote.</div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:rohanchowdary780@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/rohan-prasad-sistu-b804b6255" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Rohan-sistu" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-note">Halle (Saale), Germany</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retail Analytics & Customer Segmentation | Rohan Prasad Sistu</title>
+<meta name="description" content="Case study: an interactive Streamlit dashboard with retail KPIs and RFM customer segmentation.">
+<meta property="og:title" content="Retail Analytics & Customer Segmentation | Rohan Prasad Sistu">
+<meta property="og:description" content="Case study: an interactive Streamlit dashboard with retail KPIs and RFM customer segmentation.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1E6FE0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E6FE0'/%3E%3Ctext x='32' y='44' font-family='monospace' font-size='34' font-weight='700' text-anchor='middle' fill='white'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../index.html" style="text-decoration:none;color:inherit;"><span>Rohan</span> Prasad Sistu</a>
+    <ul>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#case-studies">Case studies</a></li>
+      <li><a href="../index.html#more">Other projects</a></li>
+      <li><a href="../index.html#certs">Training</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:rohanchowdary780@gmail.com">Get in touch</a>
+  </div>
+</nav>
+
+<header class="cs-head">
+  <div class="wrap">
+    <div class="crumb"><a href="../index.html#case-studies">← All case studies</a></div>
+    <h1>Retail analytics &amp; customer segmentation</h1>
+    <p class="cs-sum">An interactive dashboard that tracks retail KPIs and segments customers by RFM (Recency, Frequency, Monetary), so a team can see who its best customers are and where revenue comes from.</p>
+    <dl class="meta"><div><dt>Type</dt><dd>Personal project · dashboard</dd></div><div><dt>Stack</dt><dd>Python, Pandas, Streamlit, Plotly</dd></div><div><dt>Data</dt><dd>Synthetic (12,000 orders, 800 customers)</dd></div><div><dt>Links</dt><dd><a href="https://rohan-retail-dashboard.streamlit.app/" target="_blank" rel="noopener">Live demo ↗</a> · <a href="https://github.com/Rohan-sistu/Retail_analytics_dashboard" target="_blank" rel="noopener">GitHub ↗</a></dd></div></dl>
+  </div>
+</header>
+<main class="cs-body">
+  <div class="wrap">
+
+    <h2>The question</h2>
+    <p>Which customers are worth the most, which are slipping away, and where does revenue actually come from? A dashboard for a business or data analyst should answer those questions without anyone writing a query.</p>
+    <div class="callout"><p><b>About the data.</b> The dataset is synthetic. The repository includes the generator script, which creates 12,000 orders across 800 customers with varying purchase frequency to mimic real loyalty patterns. That makes the project reproducible without real customer data.</p></div>
+
+    <h2>What the dashboard shows</h2>
+    <ul>
+      <li><b>KPI overview:</b> total revenue, order count, average order value, and active customers.</li>
+      <li><b>Trend analysis:</b> weekly revenue trend and revenue broken down by category, channel, and region.</li>
+      <li><b>RFM segmentation:</b> every customer is scored on how recently they bought, how often, and how much they spend, then classified into a segment.</li>
+      <li><b>Filters:</b> date range, region, category, and channel.</li>
+    </ul>
+
+    <h2>The segments</h2>
+    <div class="t-wrap"><table class="t">
+      <tr><th>Segment</th><th>Who they are</th></tr>
+      <tr><td>Champions</td><td>Recent, frequent, high spend</td></tr>
+      <tr><td>Loyal Customers</td><td>Buy regularly and reliably</td></tr>
+      <tr><td>Potential Loyalists</td><td>Recent buyers who could become loyal</td></tr>
+      <tr><td>At Risk</td><td>Used to buy often but haven't lately</td></tr>
+      <tr><td>Lost / Dormant</td><td>Have stopped buying</td></tr>
+    </table></div>
+
+    <h2>Why RFM</h2>
+    <p>RFM is one of the most widely used segmentation techniques in retail and e-commerce analytics because it is simple, easy to explain, and directly actionable. At Risk customers are exactly who a retention campaign should target, and Champions are who a loyalty program should reward.</p>
+
+    <h2>Limits and next steps</h2>
+    <ul>
+      <li>The data is synthetic, so the segment sizes illustrate the method and are not business findings.</li>
+      <li>With real data, I would check how the segment boundaries were chosen against actual purchase behavior before acting on them.</li>
+      <li>Natural additions would be a customer lifetime value view and a cohort retention chart.</li>
+    </ul>
+    <div class="pill-row">
+      <a class="btn btn-primary" href="https://rohan-retail-dashboard.streamlit.app/" target="_blank" rel="noopener">Try the live demo ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/Rohan-sistu/Retail_analytics_dashboard" target="_blank" rel="noopener">View on GitHub ↗</a>
+    </div>
+
+    <div class="cs-nav">
+      <a href="ml-interpretability-thesis.html">← Interactive vs. Static Explanations</a>
+      <a href="bias-auditor.html">Bias Auditor →</a>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-title">Let's talk about your data.</div>
+        <div class="footer-sub">Open to data analyst and ML/analytics roles in Germany and remote.</div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:rohanchowdary780@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/rohan-prasad-sistu-b804b6255" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Rohan-sistu" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-note">Halle (Saale), Germany</div>
+  </div>
+</footer>
+</body>
+</html>
